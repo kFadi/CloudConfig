@@ -1,26 +1,6 @@
 server:
   port: '8080'
 
-management:
-  health:
-    circuitbreakers:
-      enabled: true
-  security: 
-    enabled: false
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-      path-mapping:
-        prometheus: metrics
-  # endpoint:
-  #   metrics:
-  #     enabled: true
-  #   prometheus:
-  #     enabled: true
-  #   health:
-  #     show-details: always
-  
 spring:
   cloud:
     consul:
@@ -42,3 +22,23 @@ spring:
           args:
             name: monitor-money
             fallbackUri: forward:/fallback/money
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  security: 
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      path-mapping:
+        prometheus: metrics
+  # endpoint:
+  #   metrics:
+  #     enabled: true
+  #   prometheus:
+  #     enabled: true
+  #   health:
+  #     show-details: always
